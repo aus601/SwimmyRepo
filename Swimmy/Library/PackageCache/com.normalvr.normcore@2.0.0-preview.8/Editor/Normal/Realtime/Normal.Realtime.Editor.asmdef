@@ -1,0 +1,25 @@
+{
+    "name": "Normal.Realtime.Editor",
+    "references": [
+        "Normal.Realtime",
+        "Normcore.Editor",
+        "Normcore"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.normalvr.normcore",
+            "expression": "0.0.0",
+            "define": "NORMCORE"
+        }
+    ]
+}
