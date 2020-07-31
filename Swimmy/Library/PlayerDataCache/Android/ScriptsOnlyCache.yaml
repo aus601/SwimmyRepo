@@ -1,10 +1,15 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AnimatedProjector
+    - Caustic
+    - Collectible
     - Flock
     - FlockManager
+    - MaterialRandomizer
     - MouthMove
     - ONSPSettings
+    - PlayerScoreTracker
     - PolyPerfect.AnimalPlaySound
     - PolyPerfect.Animal_AIStats
     - PolyPerfect.Animal_WanderScript
@@ -12,8 +17,16 @@ ScriptsOnlyBuild:
     - RootMotion.FinalIK.CCDIK
     - RootMotion.FinalIK.RotationLimitAngle
     - RootMotion.FinalIK.RotationLimitHinge
+    - ScoreManager
     - SwimArmMotion
+    - SwimPhysics
     - ThumbstickLocomotion
+    - UnityMovementAI.CollisionAvoidance
+    - UnityMovementAI.MovementAIRigidbody
+    - UnityMovementAI.NearSensor
+    - UnityMovementAI.SteeringBasics
+    - UnityMovementAI.Wander2
+    - UnityMovementAI.WanderAvoidUnit
     Normal.Realtime.dll:
     - Normal.Realtime.RealtimeAvatar
     - Normal.Realtime.RealtimeAvatarManager
@@ -28,10 +41,6 @@ ScriptsOnlyBuild:
     Oculus.VR.Editor.dll:
     - Assets.Oculus.VR.Editor.OVRPlatformToolSettings
     - OVRConfig
-    Oculus.VR.dll:
-    - OVRCameraRig
-    - OVRHeadsetEmulator
-    - OVRManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -64,6 +73,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.ForwardRendererData
     - UnityEngine.Rendering.Universal.PostProcessData
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+    - UnityEngine.Rendering.Universal.UniversalAdditionalLightData
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
     - UnityEngine.Rendering.Universal.UniversalRenderPipelineEditorResources
     Unity.Rider.Editor.dll:
@@ -71,7 +81,6 @@ ScriptsOnlyBuild:
     Unity.ShaderGraph.Editor.dll:
     - UnityEditor.Graphing.GraphObject
     - UnityEditor.ShaderGraph.Drawing.MaterialGraphEditWindow
-    - UnityEditor.ShaderGraph.SubGraphAsset
     Unity.XR.Interaction.Toolkit.dll:
     - UnityEngine.XR.Interaction.Toolkit.LocomotionSystem
     - UnityEngine.XR.Interaction.Toolkit.XRController
@@ -163,17 +172,11 @@ ScriptsOnlyBuild:
     - Class: 111
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11578}
-    - Class: 114
-      Script: {instanceID: 11580}
-    - Class: 114
-      Script: {instanceID: 11582}
+      Script: {instanceID: 11584}
     - Class: 114
       Script: {instanceID: 11586}
     - Class: 114
       Script: {instanceID: 11588}
-    - Class: 114
-      Script: {instanceID: 11590}
     - Class: 114
       Script: {instanceID: 11592}
     - Class: 114
@@ -181,143 +184,173 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11604}
+      Script: {instanceID: 11598}
     - Class: 114
-      Script: {instanceID: 11766}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11602}
     - Class: 114
-      Script: {instanceID: 11892}
+      Script: {instanceID: 11610}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 11988}
+      Script: {instanceID: 11900}
     - Class: 114
-      Script: {instanceID: 12086}
+      Script: {instanceID: 11970}
     - Class: 114
-      Script: {instanceID: 12098}
+      Script: {instanceID: 11996}
     - Class: 114
-      Script: {instanceID: 12300}
+      Script: {instanceID: 12000}
     - Class: 114
-      Script: {instanceID: 12348}
+      Script: {instanceID: 12112}
     - Class: 114
-      Script: {instanceID: 12608}
+      Script: {instanceID: 12320}
     - Class: 114
-      Script: {instanceID: 12732}
+      Script: {instanceID: 12368}
     - Class: 114
-      Script: {instanceID: 12826}
+      Script: {instanceID: 12632}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12756}
     - Class: 114
-      Script: {instanceID: 12960}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 13024}
+      Script: {instanceID: 12966}
     - Class: 114
-      Script: {instanceID: 13076}
+      Script: {instanceID: 12982}
     - Class: 114
-      Script: {instanceID: 13092}
+      Script: {instanceID: 13050}
     - Class: 114
-      Script: {instanceID: 13110}
+      Script: {instanceID: 13104}
     - Class: 114
-      Script: {instanceID: 13314}
+      Script: {instanceID: 13106}
     - Class: 114
-      Script: {instanceID: 13462}
+      Script: {instanceID: 13108}
     - Class: 114
-      Script: {instanceID: 13540}
+      Script: {instanceID: 13124}
     - Class: 114
-      Script: {instanceID: 13680}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13782}
+      Script: {instanceID: 13348}
     - Class: 114
-      Script: {instanceID: 13802}
+      Script: {instanceID: 13390}
     - Class: 114
-      Script: {instanceID: 13816}
+      Script: {instanceID: 13498}
     - Class: 114
-      Script: {instanceID: 13836}
+      Script: {instanceID: 13576}
     - Class: 114
-      Script: {instanceID: 13912}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 14102}
+      Script: {instanceID: 13722}
     - Class: 114
-      Script: {instanceID: 14276}
+      Script: {instanceID: 13824}
     - Class: 114
-      Script: {instanceID: 14282}
+      Script: {instanceID: 13844}
     - Class: 114
-      Script: {instanceID: 14284}
+      Script: {instanceID: 13860}
     - Class: 114
-      Script: {instanceID: 14370}
+      Script: {instanceID: 13880}
     - Class: 114
-      Script: {instanceID: 14594}
+      Script: {instanceID: 13954}
     - Class: 114
-      Script: {instanceID: 14706}
+      Script: {instanceID: 14090}
     - Class: 114
-      Script: {instanceID: 14858}
+      Script: {instanceID: 14092}
     - Class: 114
-      Script: {instanceID: 14910}
+      Script: {instanceID: 14142}
     - Class: 114
-      Script: {instanceID: 15012}
+      Script: {instanceID: 14316}
     - Class: 114
-      Script: {instanceID: 15122}
+      Script: {instanceID: 14322}
     - Class: 114
-      Script: {instanceID: 15150}
+      Script: {instanceID: 14324}
     - Class: 114
-      Script: {instanceID: 15212}
+      Script: {instanceID: 14410}
     - Class: 114
-      Script: {instanceID: 15288}
+      Script: {instanceID: 14636}
     - Class: 114
-      Script: {instanceID: 15338}
+      Script: {instanceID: 14750}
     - Class: 114
-      Script: {instanceID: 15358}
+      Script: {instanceID: 14810}
     - Class: 114
-      Script: {instanceID: 15362}
+      Script: {instanceID: 14852}
+    - Class: 114
+      Script: {instanceID: 14906}
+    - Class: 114
+      Script: {instanceID: 14960}
+    - Class: 114
+      Script: {instanceID: 15060}
+    - Class: 114
+      Script: {instanceID: 15170}
+    - Class: 114
+      Script: {instanceID: 15188}
+    - Class: 114
+      Script: {instanceID: 15200}
+    - Class: 114
+      Script: {instanceID: 15264}
+    - Class: 114
+      Script: {instanceID: 15342}
+    - Class: 114
+      Script: {instanceID: 15386}
     - Class: 114
       Script: {instanceID: 15406}
     - Class: 114
-      Script: {instanceID: 15414}
+      Script: {instanceID: 15410}
     - Class: 114
-      Script: {instanceID: 15526}
+      Script: {instanceID: 15426}
     - Class: 114
-      Script: {instanceID: 15766}
+      Script: {instanceID: 15456}
     - Class: 114
-      Script: {instanceID: 15862}
+      Script: {instanceID: 15464}
     - Class: 114
-      Script: {instanceID: 15948}
+      Script: {instanceID: 15578}
     - Class: 114
-      Script: {instanceID: 15988}
+      Script: {instanceID: 15614}
     - Class: 114
-      Script: {instanceID: 16020}
+      Script: {instanceID: 15822}
     - Class: 114
-      Script: {instanceID: 16126}
+      Script: {instanceID: 15904}
     - Class: 114
-      Script: {instanceID: 16164}
+      Script: {instanceID: 15920}
     - Class: 114
-      Script: {instanceID: 16290}
+      Script: {instanceID: 16006}
     - Class: 114
-      Script: {instanceID: 16530}
+      Script: {instanceID: 16046}
     - Class: 114
-      Script: {instanceID: 16586}
+      Script: {instanceID: 16080}
     - Class: 114
-      Script: {instanceID: 16598}
+      Script: {instanceID: 16192}
     - Class: 114
-      Script: {instanceID: 16780}
+      Script: {instanceID: 16232}
     - Class: 114
-      Script: {instanceID: 16910}
+      Script: {instanceID: 16358}
     - Class: 114
-      Script: {instanceID: 16918}
+      Script: {instanceID: 16400}
     - Class: 114
-      Script: {instanceID: 16932}
+      Script: {instanceID: 16600}
     - Class: 114
-      Script: {instanceID: 17000}
+      Script: {instanceID: 16634}
     - Class: 114
-      Script: {instanceID: 17160}
+      Script: {instanceID: 16658}
     - Class: 114
-      Script: {instanceID: 17166}
+      Script: {instanceID: 16670}
     - Class: 114
-      Script: {instanceID: 18612}
+      Script: {instanceID: 16850}
     - Class: 114
-      Script: {instanceID: 25686}
+      Script: {instanceID: 16984}
     - Class: 114
-      Script: {instanceID: 39706}
+      Script: {instanceID: 16992}
+    - Class: 114
+      Script: {instanceID: 17006}
+    - Class: 114
+      Script: {instanceID: 17076}
+    - Class: 114
+      Script: {instanceID: 17236}
+    - Class: 114
+      Script: {instanceID: 17242}
+    - Class: 114
+      Script: {instanceID: 26214}
+    - Class: 114
+      Script: {instanceID: 40234}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 119
@@ -609,6 +642,12 @@ ScriptsOnlyBuild:
     className: PlayerController
   - hash:
       serializedVersion: 2
+      Hash: 86143e4261b273176ee921a5745c2a01
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Pursue
+  - hash:
+      serializedVersion: 2
       Hash: 0d5cc9a4f0f2f06fdf3e42c1652779e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: PolyPerfect
@@ -645,6 +684,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerPersistentCanvas
   - hash:
       serializedVersion: 2
+      Hash: a5d35ccce531905e5955eb3086cfb877
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: SteeringBasics
+  - hash:
+      serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -667,6 +712,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
     namespaceName: UnityEngine.XR.LegacyInputHelpers
     className: ArmModel
+  - hash:
+      serializedVersion: 2
+      Hash: 22bd3e5e0a3d0ca0d2fb99093019cc3e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: FlockingUnit
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -747,6 +798,12 @@ ScriptsOnlyBuild:
     className: BoundsLockedObject
   - hash:
       serializedVersion: 2
+      Hash: 0d85f4fda1e0e70cd92c084d12f05cdc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: SeekUnit
+  - hash:
+      serializedVersion: 2
       Hash: 48982140c520cbca517d0f96b60a0ba9
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -775,6 +832,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion
     className: Comments
+  - hash:
+      serializedVersion: 2
+      Hash: 0d85f4fda1e0e70cd92c084d12f05cdc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: CameraMovement
   - hash:
       serializedVersion: 2
       Hash: 63e8494d8961e584a57c5e4286e89c75
@@ -811,6 +874,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: TrainButtonVisualController
+  - hash:
+      serializedVersion: 2
+      Hash: a663467deb8b3745f0304573e4264565
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: ThirdPersonUnit
   - hash:
       serializedVersion: 2
       Hash: ae3be8931454e838f67550db7c1ff99d
@@ -933,6 +1002,12 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 60a633427574ce45d817d396ae5b574a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: FollowPathUnit
+  - hash:
+      serializedVersion: 2
       Hash: 54d8f12780f7f6df9b0603e66c9a5b3b
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -979,6 +1054,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform.dll
     namespaceName: 
     className: RichPresenceSample
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: ScreenBoundary2D
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -1041,6 +1122,12 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
+      Hash: 70f5335a2e8cd23040f578b3f4c252f6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: WallAvoidanceUnit
+  - hash:
+      serializedVersion: 2
       Hash: 025866bb53162ac1e71a1b207ceca793
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1081,12 +1168,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
     className: CameraSwitcher
-  - hash:
-      serializedVersion: 2
-      Hash: 074818888d514db0fa36548c2f02d123
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: DistanceHide
   - hash:
       serializedVersion: 2
       Hash: 9e7ac575f9b84544d68c6963edb4d086
@@ -1141,12 +1222,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.FinalIK
     className: VRIK
-  - hash:
-      serializedVersion: 2
-      Hash: a4feb7b2aaea6fec75d69f7b9d3acca8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: WindSwaySimple
   - hash:
       serializedVersion: 2
       Hash: f68ff45d842c843e92e11d7546b12c5e
@@ -1209,10 +1284,22 @@ ScriptsOnlyBuild:
     className: OVRControllerHelper
   - hash:
       serializedVersion: 2
+      Hash: 7ef4f1dc2a02d5c1dea1ea6999a5648d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: HideUnit
+  - hash:
+      serializedVersion: 2
       Hash: dfe5cca4c3679f0d053990204fdc938c
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.FinalIK
     className: GrounderIK
+  - hash:
+      serializedVersion: 2
+      Hash: 713e9b44cef537f878247fb3e01233c0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: ThirdPersonCamera
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1239,16 +1326,34 @@ ScriptsOnlyBuild:
     className: CCDIKInspector
   - hash:
       serializedVersion: 2
+      Hash: d972d7ad8adfee240393b26334a0ddbc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: ArriveUnit
+  - hash:
+      serializedVersion: 2
       Hash: cddda176806387fb79934d7957e07c80
     assemblyName: Oculus.VR.dll
     namespaceName: 
     className: OVRMesh
   - hash:
       serializedVersion: 2
+      Hash: 1aec10a39c03e8678e14b5c13720cad9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: MovementAIRigidbody
+  - hash:
+      serializedVersion: 2
       Hash: d251bf88db6c95a6b1aa0b69298da9ef
     assemblyName: UnityEngine.SpatialTracking.dll
     namespaceName: UnityEngine.SpatialTracking
     className: TrackedPoseDriver
+  - hash:
+      serializedVersion: 2
+      Hash: c5f7cd6984dc9f903f099f964c1db05c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AnimatedProjector
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -1317,6 +1422,12 @@ ScriptsOnlyBuild:
     className: InteractionObject
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: ScreenBoundary3D
+  - hash:
+      serializedVersion: 2
       Hash: 5777c70a25f193ad387a5581565b81b9
     assemblyName: Assembly-CSharp.dll
     namespaceName: OVR
@@ -1363,6 +1474,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
     className: DistanceGrabber
+  - hash:
+      serializedVersion: 2
+      Hash: b37bffab72e54cb3d9d190ba4abfa47c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Caustic
   - hash:
       serializedVersion: 2
       Hash: 84f118e8bb01e4e536b4fe72b0493ca3
@@ -1497,6 +1614,12 @@ ScriptsOnlyBuild:
     className: OvrAvatarComponent
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: WanderAvoidUnit
+  - hash:
+      serializedVersion: 2
       Hash: a8c61f120a248e691d195a82070bb1fb
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -1519,6 +1642,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TeleportOrientationHandlerThumbstick
+  - hash:
+      serializedVersion: 2
+      Hash: 06b197e643f48244debe8f1b9816e07a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SwimPhysics
   - hash:
       serializedVersion: 2
       Hash: 903b7f359fa0971cd8d89415092b860b
@@ -1561,6 +1690,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.Demos
     className: GrounderDemo
+  - hash:
+      serializedVersion: 2
+      Hash: d573a9f2deeeedea204d8091a26f6017
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Separation
   - hash:
       serializedVersion: 2
       Hash: f44c236f594fba7f5b1ad375f23ea9d3
@@ -1665,16 +1800,22 @@ ScriptsOnlyBuild:
     className: TeleportOrientationHandlerHMD
   - hash:
       serializedVersion: 2
+      Hash: 7ef4f1dc2a02d5c1dea1ea6999a5648d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: PursueUnit
+  - hash:
+      serializedVersion: 2
       Hash: 9148fddbe4b186da6f20cdc1cf5d0209
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Flock
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 70f5335a2e8cd23040f578b3f4c252f6
     assemblyName: Assembly-CSharp.dll
-    namespaceName: Sun_Temple
-    className: CursorLock
+    namespaceName: UnityMovementAI
+    className: ColAvoidUnit
   - hash:
       serializedVersion: 2
       Hash: 51b05e403ce1da1805851f42af02f4bb
@@ -1713,12 +1854,6 @@ ScriptsOnlyBuild:
     className: OvrAvatarSkinnedMeshRenderPBSComponent
   - hash:
       serializedVersion: 2
-      Hash: e2e37f61289c60c05e5b52e171cba0fe
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: CursorManager
-  - hash:
-      serializedVersion: 2
       Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1741,12 +1876,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.FinalIK
     className: VRIKRootController
-  - hash:
-      serializedVersion: 2
-      Hash: 8cd59b4bd0df2ae92ddb9dd123fca63b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: CharController_Motor
   - hash:
       serializedVersion: 2
       Hash: 1eb9aed3cd6453fbc580cf51127908af
@@ -2181,6 +2310,12 @@ ScriptsOnlyBuild:
     className: DataEntry
   - hash:
       serializedVersion: 2
+      Hash: a6eeb0bdf13e87dfaed5982298419320
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: FirstPersonCamera
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -2307,6 +2442,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerWidget
   - hash:
       serializedVersion: 2
+      Hash: 86143e4261b273176ee921a5745c2a01
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: OffsetPursuit
+  - hash:
+      serializedVersion: 2
       Hash: b5d01a44c9a694c6b9bce4626dd0a12e
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -2338,12 +2479,6 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: ExposureArea
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp-Editor.dll
     namespaceName: PolyPerfect
     className: Common_WanderScriptEditor
@@ -2353,6 +2488,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.FinalIK
     className: FingerRig
+  - hash:
+      serializedVersion: 2
+      Hash: 86143e4261b273176ee921a5745c2a01
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Evade
   - hash:
       serializedVersion: 2
       Hash: c6c39ad48c140a867a97bff30ed415e8
@@ -2377,6 +2518,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: AwesomeToon
     className: AwesomeToonHelper
+  - hash:
+      serializedVersion: 2
+      Hash: 7ef4f1dc2a02d5c1dea1ea6999a5648d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: EvadeUnit
   - hash:
       serializedVersion: 2
       Hash: 0270c83f76ec2a12e20ff3527e42277e
@@ -2407,6 +2554,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.FinalIK
     className: AimIK
+  - hash:
+      serializedVersion: 2
+      Hash: 3a674b89b3b77d31a9ab6f2944371538
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerScoreTracker
   - hash:
       serializedVersion: 2
       Hash: bf8312e5e419f0f7299da40aabf2d600
@@ -2449,6 +2602,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrBoardGame
     className: EyeCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 4fbc9786c31c3cc3f93be25699bdd80c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: WallAvoidance
   - hash:
       serializedVersion: 2
       Hash: 91ae5a62e8852a581022af2d4d1d4186
@@ -2643,6 +2802,12 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
+      Hash: d4777fd2ce44d1e2e83e35f2ab3c7e15
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Collectible
+  - hash:
+      serializedVersion: 2
       Hash: 67261154e665eee8b5374d350c182b1f
     assemblyName: Unity.XR.Interaction.Toolkit.dll
     namespaceName: UnityEngine.XR.Interaction.Toolkit.UI
@@ -2691,6 +2856,12 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 0dad6fca117f2f2b117a7c72f196d9bd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: VelocityMatch
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
@@ -2725,6 +2896,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OvrAvatarSettingsEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 87486f3af9f1dead07d18bd829cc5720
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: GoDirectionUnit
   - hash:
       serializedVersion: 2
       Hash: c038cfb17ea936f949bd4b48e54b0dfa
@@ -2763,18 +2940,6 @@ ScriptsOnlyBuild:
     className: XRGrabInteractable
   - hash:
       serializedVersion: 2
-      Hash: bd572faaa6372e181b58bef389e8404e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: Door
-  - hash:
-      serializedVersion: 2
-      Hash: 9b0ff328f0cdfaaa824fc6ed95e7ab5b
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: Sun_Temple
-    className: MoveToLayer
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
@@ -2791,12 +2956,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 465dfccc3a2381233a678eb997893bed
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: CullDistances
   - hash:
       serializedVersion: 2
       Hash: 8d35f16c5022311c6f4d9432be73bfcf
@@ -2827,6 +2986,12 @@ ScriptsOnlyBuild:
     assemblyName: Normcore.Editor.dll
     namespaceName: Normal.Utility
     className: InternalSettings
+  - hash:
+      serializedVersion: 2
+      Hash: a0be37df4dbdaca260734b5e6348c0de
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreManager
   - hash:
       serializedVersion: 2
       Hash: 63bdc2cf3273aa9bf650350f19d2af61
@@ -2931,10 +3096,10 @@ ScriptsOnlyBuild:
     className: UniversalRenderPipelineEditorResources
   - hash:
       serializedVersion: 2
-      Hash: b14742f3f5aaaf624840f08ef6fc0a43
+      Hash: 0d85f4fda1e0e70cd92c084d12f05cdc
     assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: CullDistanceVolume
+    namespaceName: UnityMovementAI
+    className: FleeUnit
   - hash:
       serializedVersion: 2
       Hash: 505a6714ae02fdc2e1ba29de535a4cc5
@@ -2947,6 +3112,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Experimental.Rendering.Universal
     className: RenderObjects
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: NearSensor
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -3009,6 +3180,12 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
+      Hash: 6573bd80744243d7954dfa29805ce472
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: InfiniteGrid
+  - hash:
+      serializedVersion: 2
       Hash: 345b8a44afda348439c5c3f872756e31
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.FinalIK
@@ -3067,6 +3244,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 646bd863ae10858e68239d396c336b1c
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MaterialRandomizer
   - hash:
       serializedVersion: 2
       Hash: f69dfc6409fbbd89d3689368e99688a8
@@ -3135,6 +3318,12 @@ ScriptsOnlyBuild:
     className: OVRConfig
   - hash:
       serializedVersion: 2
+      Hash: 85f2158d66aabd146e3d31c257862f11
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Flee
+  - hash:
+      serializedVersion: 2
       Hash: 8b9f42d72019bde2f9fe0667762eaff3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -3171,6 +3360,12 @@ ScriptsOnlyBuild:
     className: InteractionSystem
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Wander1Unit
+  - hash:
+      serializedVersion: 2
       Hash: ec7fbc8b73e0251ad2b4681525d86c11
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.Demos
@@ -3201,6 +3396,18 @@ ScriptsOnlyBuild:
     className: MatchmakingManager
   - hash:
       serializedVersion: 2
+      Hash: 942f9dcad011c099e72fdabdcfad115b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: InterposeUnit
+  - hash:
+      serializedVersion: 2
+      Hash: 8931ee68f81b1920ba9abf3eaa8afbfb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Hide
+  - hash:
+      serializedVersion: 2
       Hash: 0cc2f729ed4885ca9c95ead34ce0e907
     assemblyName: Oculus.VR.Editor.dll
     namespaceName: Assets.Oculus.VR.Editor
@@ -3217,6 +3424,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.VR.dll
     namespaceName: 
     className: OVRGrabber
+  - hash:
+      serializedVersion: 2
+      Hash: ab4c6dfb5674fe06502763aece4f4050
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Spawner
   - hash:
       serializedVersion: 2
       Hash: 952bbb58dfafdf4e5f65bfc85f3c3c80
@@ -3321,6 +3534,12 @@ ScriptsOnlyBuild:
     className: OvrAvatarHand
   - hash:
       serializedVersion: 2
+      Hash: 7f28f485ff0aac578fc829eccad8a216
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: CollisionAvoidance
+  - hash:
+      serializedVersion: 2
       Hash: 393c59b202b0e7b6b9fee142f9310de1
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform
@@ -3343,12 +3562,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.FinalIK
     className: LegIK
-  - hash:
-      serializedVersion: 2
-      Hash: 74776f27876f1f406ee75bb60690bbca
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: TriggerArea
   - hash:
       serializedVersion: 2
       Hash: 9c1b93beeace9e0143c7495c06b318c2
@@ -3387,6 +3600,12 @@ ScriptsOnlyBuild:
     className: VRIKLODController
   - hash:
       serializedVersion: 2
+      Hash: 18bd7e8096c281c77f76bfb0b4cdfeb3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: OffsetPursuitUnit
+  - hash:
+      serializedVersion: 2
       Hash: 8d35f16c5022311c6f4d9432be73bfcf
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -3397,6 +3616,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OVR
     className: TestScript
+  - hash:
+      serializedVersion: 2
+      Hash: 1666387b871d2f65a761fae8ef9cd5fd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Wander2
   - hash:
       serializedVersion: 2
       Hash: bf5bc37d1b9fa0109a9404c9ae466b5c
@@ -3433,12 +3658,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.Demos
     className: HitReactionVRIKTrigger
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: DisableRenderer
   - hash:
       serializedVersion: 2
       Hash: 21d73eda81c18eacd2c91ad5dfaf2e32
@@ -3573,6 +3792,12 @@ ScriptsOnlyBuild:
     className: PenetrationAvoidance
   - hash:
       serializedVersion: 2
+      Hash: e6e057df5de4f4c77f05f7f2a7adfbf3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Wander1
+  - hash:
+      serializedVersion: 2
       Hash: 4cb66e4c5a40604a9cc1da83340b88c1
     assemblyName: Assembly-CSharp.dll
     namespaceName: RootMotion.Demos
@@ -3589,6 +3814,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: EventTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Wander2Unit
   - hash:
       serializedVersion: 2
       Hash: 8649814970b42d345b89944b862453cc
@@ -3691,6 +3922,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TeleportDestination
+  - hash:
+      serializedVersion: 2
+      Hash: bcd4a0442ddfedd88779e10bdb7f7958
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: Cohesion
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -3801,16 +4038,16 @@ ScriptsOnlyBuild:
     className: Turret
   - hash:
       serializedVersion: 2
+      Hash: a1739e8fd2ae435d091123c2a629cba1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: UnityMovementAI
+    className: FollowPath
+  - hash:
+      serializedVersion: 2
       Hash: 08705cef837f5d18a4c86b19b1ccf347
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: Vignette
-  - hash:
-      serializedVersion: 2
-      Hash: efaff57baedb2ee9e16f05cb27ae59b9
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: SunTemple
-    className: ExposureManager
   - hash:
       serializedVersion: 2
       Hash: 8b8b18ce5ce466450710494b38db41e5
@@ -3850,4 +4087,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Scene2.unity
-  playerPath: C:/Users/Aus/Desktop/Light Sail/Build_Jul13.apk
+  playerPath: C:/Users/Aus/Desktop/Light Sail/Swimmy/build7.apk

@@ -43,7 +43,7 @@ public class Flock : MonoBehaviour
                 //How close each fish can be until avoiding neighbor
                 if (neighborDistance < 1.0f)
                 {
-                    avoidanceVector = avoidanceVector + (this.transform.position - fish.transform.position);
+                    //avoidanceVector = avoidanceVector + (this.transform.position - fish.transform.position);
                 }
 
                 //Add total speed of each fish in the flock
@@ -58,12 +58,14 @@ public class Flock : MonoBehaviour
             speed = globalSpeed / groupSize;
 
             //Direction to travel in
-            Vector3 direction = (groupCenter + avoidanceVector) - transform.position;
+            Vector3 direction = (groupCenter ) - transform.position;
             //Slowly turn fish in direction
-            if (direction != Vector3.zero)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), myManager.rotationSpeed * Time.deltaTime);
-            }
+            //if (direction != Vector3.zero)
+            //{
+                transform.rotation = Quaternion.Slerp(transform.rotation, 
+                    Quaternion.LookRotation(direction), 
+                    myManager.rotationSpeed * Time.deltaTime);
+            //}
         }
     }
 }

@@ -4,10 +4,12 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Bgr_ErrodedCliff_A
-  m_Shader: {fileID: 4800000, guid: 85fc5064ff27c344592430b93381ab08, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2e2258397888d644eba564ae594b09d6,
+    type: 3}
   m_ShaderKeywords: _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP _SUNDISK_HIGH_QUALITY
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -18,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_C18867DB:
+        m_Texture: {fileID: 2800000, guid: c6dc0a1f790ab8042be5faff5655b1bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AO:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -99,6 +105,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_2CB85C33: 30
+    - Vector1_3B39055F: 0.1
+    - Vector1_5D6D0405: 0.7
     - _AtmosphereThickness: 1.92
     - _BlendInvert: 0
     - _BlendMaskInvert: 1
@@ -133,6 +142,10 @@ Material:
     - _layer1Smooth: 0
     - _layer1Tiling: 1
     m_Colors:
+    - Color_4E4C702: {r: 0.9686275, g: 0.8313726, b: 0.75294125, a: 0}
+    - Color_AF619DC6: {r: 1, g: 1, b: 1, a: 0}
+    - Color_C1E8C694: {r: 1, g: 1, b: 1, a: 0}
+    - Color_D5284C3C: {r: 0.4103774, g: 0.7792791, b: 1, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GroundColor: {r: 0.36899996, g: 0.34899998, b: 0.34099993, a: 1}
