@@ -20,7 +20,16 @@ public class ScoreManager : RealtimeComponent
     public int player4Score = 0;
     public int player5Score = 0;
 
+    public int player1ID = 0;
+    public int player2ID = 0;
+    public int player3ID = 0;
+    public int player4ID = 0;
+    public int player5ID = 0;
+
     private ScoreManagerModel _model;
+
+    private RealtimeAvatarManager _realtimeAvatarManager = null;
+
     private ScoreManagerModel model
     {
         set
@@ -52,10 +61,25 @@ public class ScoreManager : RealtimeComponent
                 _model.player4ScoreDidChange += player4ScoreChanged;
                 _model.player5ScoreDidChange += player5ScoreChanged;
             }
-        }
+
+            /*
+            //Match a player ID with a player number 1-5
+            player1ID = _realtimeAvatarManager.avatars[1];
+            player2ID = 0;
+            player3ID = 0;
+            player4ID = 0;
+            player5ID = 0;
+            */
+
+}
     }
 
-    //Player 5
+    public void Start()
+    {
+        
+    }
+
+    //Player 1
     private void player1ScoreChanged(ScoreManagerModel model, int value)
     {
         player1UpdateScore();
@@ -70,7 +94,7 @@ public class ScoreManager : RealtimeComponent
         _model.player1Score += score;
     }
 
-    //Player 5
+    //Player 2
     private void player2ScoreChanged(ScoreManagerModel model, int value)
     {
         player2UpdateScore();
@@ -127,9 +151,6 @@ public class ScoreManager : RealtimeComponent
     }
 
 
-
-    //realtime dictionary 2 values player id and score
-
     public void Awake()
     {
         if (instance == null)
@@ -137,38 +158,60 @@ public class ScoreManager : RealtimeComponent
         else if (instance != null)
             Destroy(this);
 
-        //get client IDs
-
+        //Get reference for RealtimeAvatarManager
+        _realtimeAvatarManager = FindReferences.Instance.getRealtimeAvatarManager();
     }
 
-    public void AddToScore(int scoreValue, int playerID)
+    public void AddToScore(int scoreValue, int playerID)// Player player)
     {
-        //check player
-        switch (playerID)
+        //RealtimeAvatar playerAvatar;
+        //if (_realtimeAvatarManager.avatars.ContainsKey(playerID))
+            //playerAvatar = _realtimeAvatarManager.avatars[playerID];
+
+        //Player player = playerAvatar.GetComponent<Player>();
+        //scoreText2.text = "player name " + player.GetPlayerName();
+
+        List<int> IDList = new List<int>(_realtimeAvatarManager.avatars.Keys);
+        List<RealtimeAvatar> avatarList = new List<RealtimeAvatar>(_realtimeAvatarManager.avatars.Values);
+
+        //check which player #1-5 based on player ID
+        try
         {
-            case 1:
+            if (playerID == IDList[0])
+            {
                 player1Score += scoreValue;
-                scoreText1.text = "My Score: " + player1Score.ToString();
-                break;
-            case 2:
+                scoreText1.text = avatarList[0].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+            }
+            else if (playerID == IDList[1])
+            {
                 player2Score += scoreValue;
-                scoreText2.text = "My Score: " + player2Score.ToString();
-                break;
-            case 3:
+                scoreText2.text = avatarList[1].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+            }
+            else if (playerID == IDList[2])
+            {
                 player3Score += scoreValue;
-                scoreText3.text = "My Score: " + player3Score.ToString();
-                break;
-            case 4:
+                scoreText3.text = avatarList[2].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+            }
+            else if (playerID == IDList[3])
+            {
                 player4Score += scoreValue;
-                scoreText4.text = "My Score: " + player4Score.ToString();
-                break;
-            case 5:
+                scoreText4.text = avatarList[3].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+            }
+            else if (playerID == IDList[4])
+            {
                 player5Score += scoreValue;
-                scoreText5.text = "My Score: " + player5Score.ToString();
-                break;
-            default:
-                break;
+                scoreText5.text = avatarList[4].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+            }
+            else
+            {
+                scoreText1.text = "no matching ID";
+            }
+        } catch (System.IndexOutOfRangeException e) {
+            Debug.Log("Index out of bounds. Client ID not found");
+            scoreText1.text = "out of bounds index";
         }
+        
+
     }
 
 }

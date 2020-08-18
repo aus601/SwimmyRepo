@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: InternalSettings
   m_EditorClassIdentifier: 
   _migration:
-    lastPromptedVersion: 1
-    version: 1
+    lastPromptedVersion: 2
+    version: 2

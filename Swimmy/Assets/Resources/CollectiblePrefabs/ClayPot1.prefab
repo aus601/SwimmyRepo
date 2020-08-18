@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5226194442410278384}
   - component: {fileID: 5226194442410278391}
   - component: {fileID: 8833335292982831912}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ClayPot1
   m_TagString: Collectible
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 5226194440871145457}
   m_LocalRotation: {x: 0.4536485, y: -0, z: -0, w: 0.89118075}
   m_LocalPosition: {x: 17.66, y: -1.72, z: 51.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.78586, y: 0.78586, z: 0.78586}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,10 +97,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!64 &5226194442410278387
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: bc7a6c3f8de23b14980598975ad63c3c, type: 3}
 --- !u!114 &5226194442410278386
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 1
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
@@ -220,7 +220,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_ThrowVelocityScale: 1.5
   m_ThrowAngularVelocityScale: 0.25
-  m_GravityOnDetach: 0
+  m_GravityOnDetach: 1
   m_RetainTransformParent: 1
 --- !u!114 &5226194442410278384
 MonoBehaviour:
@@ -239,7 +239,7 @@ MonoBehaviour:
   _syncRotation: 1
   _syncScale: 1
   _syncVelocity: 1
-  _maintainOwnershipWhileSleeping: 0
+  _maintainOwnershipWhileSleeping: 1
 --- !u!114 &5226194442410278391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,8 +262,6 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: 5226194442410278384}
-    componentIDHasBeenUsed: 1
-  _parentView: {fileID: 0}
   _childViews: []
 --- !u!114 &8833335292982831912
 MonoBehaviour:

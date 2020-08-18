@@ -11,6 +11,8 @@ public class Collectible : MonoBehaviour
 
     public int scoreValue;
 
+    private Player lastOwner;
+
     public void Awake()
     {
         //scoreManager = GameObject.Find("ScoreManager");
@@ -19,6 +21,7 @@ public class Collectible : MonoBehaviour
     public void setLastOwnerID()
     {
         lastOwnerID = GetComponent<RealtimeView>().ownerID;
+        //lastOwner = GetComponent<RealtimeView>().GetComponent<Player>();
     }
 
     public int GetScore()
@@ -28,8 +31,11 @@ public class Collectible : MonoBehaviour
 
     public void CollectObject()
     {
-        if (handInBag)
-            ScoreManager.instance.AddToScore(scoreValue, lastOwnerID);
+        //Debug.Log(handInBag);
+        //if (handInBag)
+        ScoreManager.instance.AddToScore(scoreValue, lastOwnerID);
+        //this.GetComponent<MeshRenderer>().enabled = false;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,5 +49,10 @@ public class Collectible : MonoBehaviour
     {
         if (other.tag == "Bag")
             handInBag = false;
+    }
+
+    public void testCollect()
+    {
+        ScoreManager.instance.AddToScore(5, 0);
     }
 }

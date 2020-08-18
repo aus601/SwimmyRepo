@@ -14,10 +14,10 @@ public class SwimPhysics : LocomotionProvider
     public float gravityMultiplier = 1.0f;
 
     //Game objects
-    public Rigidbody LeftHand;
-    public Rigidbody RightHand;
+    //public Rigidbody LeftHand;
+    //public Rigidbody RightHand;
     public Rigidbody Body;
-    public Rigidbody cube;
+    //public Rigidbody cube;
 
     //Physics
     public float timeToZero = 6f;
@@ -82,15 +82,17 @@ public class SwimPhysics : LocomotionProvider
 
     private void CheckForMovement(InputDevice device)
     {
-        if (device.TryGetFeatureValue(CommonUsages.deviceAcceleration, out Vector3 accel)) //if the controller is moving
+        //bool isTriggerPressed;
+        if (device.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 accel)) //if the controller is moving
         {
-            StartMove(accel);
+            //if (device.TryGetFeatureValue(CommonUsages.triggerButton, out isTriggerPressed) && isTriggerPressed)
+            StartMove(accel, device);
         }
         
 
     }
 
-    private void StartMove(Vector3 accel) //is called by-frame for each hand
+    private void StartMove(Vector3 accel, InputDevice device) //is called by-frame for each hand
     {
         //speed *= decelRatePerSec;
         //speed = Mathf.Max(speed, 0);
@@ -100,9 +102,32 @@ public class SwimPhysics : LocomotionProvider
         //Body.AddForce(accel * Time.deltaTime);
         //charController.Move(movement * Time.deltaTime);
 
-        Vector3 velocity =  -accel ;
-        //Body.AddForce(velocity, ForceMode.Impulse);
-        charController.Move(velocity * Time.deltaTime);
+        Vector3 velocity =  -accel;
+
+        //Debug.Log(velocity);
+        if (velocity.magnitude > 1.9) //normal big stroke
+        {
+            Body.AddForce(velocity, ForceMode.Impulse);
+
+            //Haptics
+            UnityEngine.XR.HapticCapabilities capabilities;
+            if (device.TryGetHapticCapabilities(out capabilities))
+            {
+                if (capabilities.supportsImpulse)
+                {
+                    uint channel = 0;
+                    float amplitude = 0.3f ;
+                    float duration = 0.7f;
+                    device.SendHapticImpulse(channel, amplitude, duration);
+                }
+            }
+        }
+        else if (velocity.magnitude > 1.5 && velocity.magnitude <= 1.9) //tiny stroke
+        {
+            Body.AddForce(velocity / 5, ForceMode.Impulse);
+        }
+
+        //charController.Move(velocity * Time.deltaTime);
 
 
         /*
