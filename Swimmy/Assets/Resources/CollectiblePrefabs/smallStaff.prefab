@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 6283070405502439465}
   - component: {fileID: 8130409612654339299}
   - component: {fileID: 7427722036765858159}
-  - component: {fileID: 7427722036765858128}
   - component: {fileID: 7427722036765858158}
   - component: {fileID: 7427722036765858129}
   - component: {fileID: 7427722036765858130}
   - component: {fileID: 197488684536073922}
+  - component: {fileID: -2254421968812591283}
   m_Layer: 10
   m_Name: smallStaff
   m_TagString: Collectible
@@ -100,21 +100,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!64 &7427722036765858128
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7770389443160130870}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3559954733676059301, guid: 1ad84d2f9b6794b43b9309c771f18b19, type: 3}
+  m_CollisionDetection: 3
 --- !u!114 &7427722036765858158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,3 +273,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 7
+--- !u!65 &-2254421968812591283
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7770389443160130870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5378014, y: 2.837816, z: 0.98393875}
+  m_Center: {x: -0.000039115544, y: 0.00000095367375, z: -1.1657342e-12}

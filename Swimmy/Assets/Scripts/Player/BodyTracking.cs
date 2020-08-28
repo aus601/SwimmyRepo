@@ -23,8 +23,6 @@ public class BodyTracking : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
-    {
         //prevRotation = transform.rotation;
         //transform.rotation = Quaternion.Euler(0, prevRotation.y, prevRotation.z);
         //transform.rotation = fixedRotation.eulerAngles.x;
@@ -35,9 +33,8 @@ public class BodyTracking : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, headY, transform.position.z);
         */
-    }
     
-    private void Update()
+    private void LateUpdate()
     {
         transform.position = head.transform.position + bodyPos;
         prevRotation = head.transform.rotation;

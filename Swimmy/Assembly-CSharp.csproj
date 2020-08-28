@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\HookUpAvatarManager.cs" />
     <Compile Include="Assets\Models\Materials\AwesomeToonHelper.cs" />
     <Compile Include="Assets\Models\Materials\LightFlicker.cs" />
     <Compile Include="Assets\Normal\Examples\Blank Scene Template\Scripts\OculusSetFloorTrackingOriginWithoutPlugin.cs" />
@@ -411,19 +412,16 @@
     <Compile Include="Assets\Resources\RootMotion\Shared Scripts\TriggerEventBroadcaster.cs" />
     <Compile Include="Assets\Resources\RootMotion\Shared Scripts\V3Tools.cs" />
     <Compile Include="Assets\Resources\RootMotion\Shared Scripts\Warning.cs" />
-    <Compile Include="Assets\Scripts\AnimatedProjector.cs" />
-    <Compile Include="Assets\Scripts\Caustic.cs" />
     <Compile Include="Assets\Scripts\Collectible.cs" />
-    <Compile Include="Assets\Scripts\FindCamera.cs" />
-    <Compile Include="Assets\Scripts\Flock.cs" />
-    <Compile Include="Assets\Scripts\FlockManager.cs" />
     <Compile Include="Assets\Scripts\HoverUI.cs" />
     <Compile Include="Assets\Scripts\InputFieldAction.cs" />
     <Compile Include="Assets\Scripts\Loading\BuildLoader.cs" />
     <Compile Include="Assets\Scripts\Loading\ButtonObject.cs" />
-    <Compile Include="Assets\Scripts\Loading\FindReferences.cs" />
+    <Compile Include="Assets\Scripts\Loading\GetMicPermissions.cs" />
     <Compile Include="Assets\Scripts\Loading\Indicator.cs" />
     <Compile Include="Assets\Scripts\Loading\LayerSwitcher.cs" />
+    <Compile Include="Assets\Scripts\Loading\LoadingScreen.cs" />
+    <Compile Include="Assets\Scripts\Loading\LoadingSpherePosition.cs" />
     <Compile Include="Assets\Scripts\Loading\Rotate.cs" />
     <Compile Include="Assets\Scripts\Loading\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\Loading\ScreenFader.cs" />
@@ -431,20 +429,30 @@
     <Compile Include="Assets\Scripts\LobbySwimPhysics.cs" />
     <Compile Include="Assets\Scripts\MaterialRandomizer.cs" />
     <Compile Include="Assets\Scripts\MovementProvider.cs" />
+    <Compile Include="Assets\Scripts\Old\AnimatedProjector.cs" />
+    <Compile Include="Assets\Scripts\Old\Caustic.cs" />
+    <Compile Include="Assets\Scripts\Old\Flock.cs" />
+    <Compile Include="Assets\Scripts\Old\FlockManager.cs" />
+    <Compile Include="Assets\Scripts\Old\TestID.cs" />
+    <Compile Include="Assets\Scripts\Old\ThumbstickLocomotion.cs" />
     <Compile Include="Assets\Scripts\Player\BodyTracking.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerModel.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerName.cs" />
+    <Compile Include="Assets\Scripts\Player\SwimmyAvatar.cs" />
+    <Compile Include="Assets\Scripts\Player\SwimmyAvatarManager.cs" />
+    <Compile Include="Assets\Scripts\Player\SwitchLocomotion.cs" />
     <Compile Include="Assets\Scripts\Player\UpdateLocalPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerScoreTracker.cs" />
+    <Compile Include="Assets\Scripts\References\FindCamera.cs" />
+    <Compile Include="Assets\Scripts\References\FindReferences.cs" />
+    <Compile Include="Assets\Scripts\References\VRRigReference.cs" />
     <Compile Include="Assets\Scripts\Respawn.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\ScoreManagerModel.cs" />
     <Compile Include="Assets\Scripts\SwimArmMotion.cs" />
     <Compile Include="Assets\Scripts\SwimPhysics.cs" />
-    <Compile Include="Assets\Scripts\SwitchLocomotion.cs" />
-    <Compile Include="Assets\Scripts\ThumbstickLocomotion.cs" />
-    <Compile Include="Assets\Scripts\VRRigReference.cs" />
+    <Compile Include="Assets\Scripts\WinManager.cs" />
     <Compile Include="Assets\UnityMovementAI\Scripts\Camera\CameraMovement.cs" />
     <Compile Include="Assets\UnityMovementAI\Scripts\Camera\FirstPersonCamera.cs" />
     <Compile Include="Assets\UnityMovementAI\Scripts\Camera\InfiniteGrid.cs" />

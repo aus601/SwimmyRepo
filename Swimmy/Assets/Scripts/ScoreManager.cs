@@ -28,7 +28,7 @@ public class ScoreManager : RealtimeComponent
 
     private ScoreManagerModel _model;
 
-    private RealtimeAvatarManager _realtimeAvatarManager = null;
+    private SwimmyAvatarManager _swimmyAvatarManager = null;
 
     private ScoreManagerModel model
     {
@@ -61,22 +61,7 @@ public class ScoreManager : RealtimeComponent
                 _model.player4ScoreDidChange += player4ScoreChanged;
                 _model.player5ScoreDidChange += player5ScoreChanged;
             }
-
-            /*
-            //Match a player ID with a player number 1-5
-            player1ID = _realtimeAvatarManager.avatars[1];
-            player2ID = 0;
-            player3ID = 0;
-            player4ID = 0;
-            player5ID = 0;
-            */
-
 }
-    }
-
-    public void Start()
-    {
-        
     }
 
     //Player 1
@@ -159,58 +144,116 @@ public class ScoreManager : RealtimeComponent
             Destroy(this);
 
         //Get reference for RealtimeAvatarManager
-        _realtimeAvatarManager = FindReferences.Instance.getRealtimeAvatarManager();
+        _swimmyAvatarManager = FindReferences.Instance.getSwimmyAvatarManager();
     }
 
-    public void AddToScore(int scoreValue, int playerID)// Player player)
+    public bool checkForWin(int score)
     {
-        //RealtimeAvatar playerAvatar;
-        //if (_realtimeAvatarManager.avatars.ContainsKey(playerID))
-            //playerAvatar = _realtimeAvatarManager.avatars[playerID];
+        if (score >= 20)
+        {
+            return true;
+        }
+        return false;
+    }
 
-        //Player player = playerAvatar.GetComponent<Player>();
-        //scoreText2.text = "player name " + player.GetPlayerName();
+    public void AddToScore(int scoreValue, int playerID)
+    {
+        List<int> IDList = new List<int>(_swimmyAvatarManager.avatars.Keys);
+        List<SwimmyAvatar> avatarList = new List<SwimmyAvatar>(_swimmyAvatarManager.avatars.Values);
 
-        List<int> IDList = new List<int>(_realtimeAvatarManager.avatars.Keys);
-        List<RealtimeAvatar> avatarList = new List<RealtimeAvatar>(_realtimeAvatarManager.avatars.Values);
+        scoreText2.text = "id list length: " + IDList.Count + " and this ID: " + playerID;
+        scoreText3.text = "avatar list length: " + avatarList.Count;
+        scoreText4.text = "dictionary length: " + _swimmyAvatarManager.avatars.Count;
+
+        //foreach loop through dictionary
+        SwimmyAvatar currentAvatar = null;
+        foreach (KeyValuePair<int, SwimmyAvatar> currentPair in _swimmyAvatarManager.avatars)
+        {
+            if (currentPair.Key == playerID)
+            {
+                currentAvatar = currentPair.Value.GetComponent<SwimmyAvatar>();
+            }
+        }
+
+        if (currentAvatar == null)
+            scoreText1.text = "avatar null";
+        else if (currentAvatar._player == null)
+            scoreText1.text = "player component null";
+        else
+            scoreText1.text = currentAvatar._player.GetPlayerName() + "name and ID: " + playerID;
 
         //check which player #1-5 based on player ID
+
+        int scoreToCheck = 0;
+        int whichPlayer = 0;
         try
         {
             if (playerID == IDList[0])
             {
                 player1Score += scoreValue;
-                scoreText1.text = avatarList[0].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+                scoreToCheck = player1Score;
+                whichPlayer = 1;
+                scoreText1.text = currentAvatar.GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
             }
             else if (playerID == IDList[1])
             {
                 player2Score += scoreValue;
+                scoreToCheck = player2Score;
+                whichPlayer = 2;
                 scoreText2.text = avatarList[1].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
             }
             else if (playerID == IDList[2])
             {
                 player3Score += scoreValue;
+                scoreToCheck = player3Score;
+                whichPlayer = 3;
                 scoreText3.text = avatarList[2].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
             }
             else if (playerID == IDList[3])
             {
                 player4Score += scoreValue;
+                scoreToCheck = player4Score;
+                whichPlayer = 4;
                 scoreText4.text = avatarList[3].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
             }
             else if (playerID == IDList[4])
             {
                 player5Score += scoreValue;
+                scoreToCheck = player5Score;
+                whichPlayer = 5;
                 scoreText5.text = avatarList[4].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
             }
             else
             {
-                scoreText1.text = "no matching ID";
+                scoreText1.text = "no matching ID for: " + playerID;
             }
-        } catch (System.IndexOutOfRangeException e) {
+        } catch (System.IndexOutOfRangeException) {
             Debug.Log("Index out of bounds. Client ID not found");
             scoreText1.text = "out of bounds index";
         }
-        
+
+        //Check if there is a win
+        if (checkForWin(scoreToCheck))
+        {
+            WinManager.Instance.playerHasWon(whichPlayer);
+        }
+
+
+        /*
+       if (_swimmyAvatarManager.avatars.TryGetValue(playerID, out SwimmyAvatar currentAvatar))
+       {
+           scoreText2.text ="Player name:" + currentAvatar._player.GetPlayerName();
+       }
+       else
+       {
+           scoreText3.text = "No matching avatar for this ID: " + playerID;
+
+           //When I DO have this line below: the playerID is-1. 
+           //When I DON'T and line is commented out, playerID is 0 and object won't pick up
+           scoreText4.text = "Name of avatar at key 0: "+ _swimmyAvatarManager.avatars[0]._player.GetPlayerName() + ".end of name";
+       }
+
+       */
 
     }
 

@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 504927793601289758}
   - component: {fileID: 504927793600191710}
   - component: {fileID: 504927794876716756}
-  - component: {fileID: 504927794876716757}
   - component: {fileID: 504927794876716747}
   - component: {fileID: 504927794876716758}
   - component: {fileID: 504927794876716759}
   - component: {fileID: 6943378722264563993}
+  - component: {fileID: 5867772567034368812}
   m_Layer: 10
   m_Name: LampBlue1
   m_TagString: Collectible
@@ -101,21 +101,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!64 &504927794876716757
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504927793602118174}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: 5a96ca2a8509540489e50ee18acb0b4a, type: 3}
+  m_CollisionDetection: 3
 --- !u!114 &504927794876716747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +249,6 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: 504927794876716758}
-    componentIDHasBeenUsed: 1
-  _parentView: {fileID: 0}
   _childViews: []
 --- !u!114 &6943378722264563993
 MonoBehaviour:
@@ -279,3 +263,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 6
+--- !u!65 &5867772567034368812
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504927793602118174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26414794, y: 0.46732837, z: 0.23587386}
+  m_Center: {x: 0.014355889, y: 0.23317325, z: 0.00016811036}

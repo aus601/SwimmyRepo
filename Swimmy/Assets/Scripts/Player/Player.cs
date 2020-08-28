@@ -30,7 +30,7 @@ public class Player : RealtimeComponent
                 _model.playerNameDidChange += PlayerNameChanged;
             }
 
-            playerID = realtime.clientID;
+            Debug.Log("Player realtime.clientID: " + playerID);
         }
     }
 
@@ -47,15 +47,18 @@ public class Player : RealtimeComponent
     public void SetPlayerName(string _name)
     {
         _model.playerName = _name;
+        playerName = _name;
+
+        Debug.Log("Player name has been set.");
     }
 
     public string GetPlayerName()
     {
-        return _model.playerName;
-    }
-
-    public int GetPlayerID()
-    {
-        return playerID;
+        if (_model.playerName == null)
+            return playerName;
+        else if (playerName == null)
+            return _model.playerName;
+        else
+            return "I have no name.";
     }
 }

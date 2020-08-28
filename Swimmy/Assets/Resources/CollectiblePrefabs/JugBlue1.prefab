@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 4700373947021250841}
   - component: {fileID: 4700373947020121049}
   - component: {fileID: 4700373946392379974}
-  - component: {fileID: 4700373946392379975}
   - component: {fileID: 4700373946392379969}
   - component: {fileID: 4700373946392379972}
   - component: {fileID: 4700373946392379973}
   - component: {fileID: 2304849737595899487}
+  - component: {fileID: 3461695689684044899}
   m_Layer: 10
   m_Name: JugBlue1
   m_TagString: Collectible
@@ -101,21 +101,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!64 &4700373946392379975
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4700373947017858329}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: ce0aae1148029284db238a3a2c797525, type: 3}
+  m_CollisionDetection: 3
 --- !u!114 &4700373946392379969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,8 +249,6 @@ MonoBehaviour:
   _components:
   - componentID: 1
     component: {fileID: 4700373946392379972}
-    componentIDHasBeenUsed: 1
-  _parentView: {fileID: 0}
   _childViews: []
 --- !u!114 &2304849737595899487
 MonoBehaviour:
@@ -279,3 +263,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 5
+--- !u!65 &3461695689684044899
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4700373947017858329}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30265954, y: 0.46304315, z: 0.30265957}
+  m_Center: {x: 0, y: 0.23151964, z: 0.000000007949348}

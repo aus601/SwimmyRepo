@@ -22,6 +22,7 @@ public class Collectible : MonoBehaviour
     {
         lastOwnerID = GetComponent<RealtimeView>().ownerID;
         //lastOwner = GetComponent<RealtimeView>().GetComponent<Player>();
+        Debug.Log("Last owner ID: " + lastOwnerID);
     }
 
     public int GetScore()

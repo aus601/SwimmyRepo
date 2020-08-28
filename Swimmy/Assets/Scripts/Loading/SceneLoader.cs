@@ -9,8 +9,9 @@ public class SceneLoader : Singleton<SceneLoader>
     public UnityEvent OnLoadEnd = new UnityEvent();
     public ScreenFader screenFader = null;
 
-    private bool isLoading = false;
-    public bool gameIsLoaded = false;
+    public bool isLoading = false;
+    public bool gameIsLoading = false;
+    public bool lobbyIsLoading = false;
 
     private void Awake()
     {
@@ -25,8 +26,14 @@ public class SceneLoader : Singleton<SceneLoader>
 
     public void LoadNewScene(string sceneName)
     {
-        if (sceneName == "GameScene")
-            gameIsLoaded = true;
+        if (sceneName == "Lobby")
+        {
+            lobbyIsLoading = true;
+        }
+        else if (sceneName == "GameScene")
+        {
+            gameIsLoading = true;
+        }
 
         if (!isLoading)
             StartCoroutine(LoadScene(sceneName));
@@ -34,7 +41,6 @@ public class SceneLoader : Singleton<SceneLoader>
 
     private IEnumerator LoadScene(string sceneName)
     {
-
         isLoading = true;
 
         OnLoadBegin.Invoke();

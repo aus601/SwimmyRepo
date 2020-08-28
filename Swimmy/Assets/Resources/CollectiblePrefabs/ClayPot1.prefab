@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 5226194440867886065}
   - component: {fileID: 5226194440868884785}
   - component: {fileID: 5226194442410278385}
-  - component: {fileID: 5226194442410278387}
   - component: {fileID: 5226194442410278386}
   - component: {fileID: 5226194442410278384}
   - component: {fileID: 5226194442410278391}
   - component: {fileID: 8833335292982831912}
+  - component: {fileID: 2631907353872115070}
   m_Layer: 10
   m_Name: ClayPot1
   m_TagString: Collectible
@@ -100,21 +100,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
---- !u!64 &5226194442410278387
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5226194440871145457}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: bc7a6c3f8de23b14980598975ad63c3c, type: 3}
+  m_CollisionDetection: 3
 --- !u!114 &5226194442410278386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,3 +262,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 3
+--- !u!65 &2631907353872115070
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226194440871145457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79403317, y: 0.7803891, z: 0.7940332}
+  m_Center: {x: 0, y: 0.39019448, z: -0.0000000116287}

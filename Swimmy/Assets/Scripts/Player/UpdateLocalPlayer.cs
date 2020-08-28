@@ -9,7 +9,7 @@ public class UpdateLocalPlayer : Singleton<FindReferences>
     private static UpdateLocalPlayer _instance = null;
 
     private string localPlayerName;
-    private RealtimeAvatarManager _realtimeAvatarManager;
+    private SwimmyAvatarManager _realtimeAvatarManager;
     private Realtime _realtime;
 
     public static UpdateLocalPlayer Instance
@@ -32,7 +32,7 @@ public class UpdateLocalPlayer : Singleton<FindReferences>
 
         //_realtime = GameObject.Find("Realtime + VR Player");
         _realtime = GetComponent<Realtime>();
-        _realtimeAvatarManager = GetComponent<RealtimeAvatarManager>();
+        _realtimeAvatarManager = GetComponent<SwimmyAvatarManager>();
     }
 
     public void SaveLocalPlayerName(TextMeshProUGUI nameField)
