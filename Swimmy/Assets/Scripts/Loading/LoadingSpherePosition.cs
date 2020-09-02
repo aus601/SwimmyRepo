@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Used on the loading sphere to follow player's head
+ * Prevents player swimming out of sphere in between scenes
+ */
 public class LoadingSpherePosition : MonoBehaviour
 {
     public GameObject player;

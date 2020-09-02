@@ -12,9 +12,4 @@ public class GetMicPermissions : MonoBehaviour
             Permission.RequestUserPermission(Permission.Microphone);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -143,10 +143,13 @@ public class ScoreManager : RealtimeComponent
         else if (instance != null)
             Destroy(this);
 
-        //Get reference for RealtimeAvatarManager
+        //Get reference for SwimmyAvatarManager
         _swimmyAvatarManager = FindReferences.Instance.getSwimmyAvatarManager();
     }
 
+    /* Check if this score is big enough to be a win
+     * Called from AddToScore()
+     */
     public bool checkForWin(int score)
     {
         if (score >= 20)
@@ -156,16 +159,20 @@ public class ScoreManager : RealtimeComponent
         return false;
     }
 
+    /* Adds an objects score to the total score of the player who collected
+     * Called by Collectible.CollectObject()
+     */
     public void AddToScore(int scoreValue, int playerID)
     {
         List<int> IDList = new List<int>(_swimmyAvatarManager.avatars.Keys);
         List<SwimmyAvatar> avatarList = new List<SwimmyAvatar>(_swimmyAvatarManager.avatars.Values);
 
+        //Testing purposes only
         scoreText2.text = "id list length: " + IDList.Count + " and this ID: " + playerID;
         scoreText3.text = "avatar list length: " + avatarList.Count;
         scoreText4.text = "dictionary length: " + _swimmyAvatarManager.avatars.Count;
 
-        //foreach loop through dictionary
+        //Loop through the dictionary to find matching player
         SwimmyAvatar currentAvatar = null;
         foreach (KeyValuePair<int, SwimmyAvatar> currentPair in _swimmyAvatarManager.avatars)
         {
@@ -175,6 +182,7 @@ public class ScoreManager : RealtimeComponent
             }
         }
 
+        //Testing purposes
         if (currentAvatar == null)
             scoreText1.text = "avatar null";
         else if (currentAvatar._player == null)
@@ -183,10 +191,9 @@ public class ScoreManager : RealtimeComponent
             scoreText1.text = currentAvatar._player.GetPlayerName() + "name and ID: " + playerID;
 
         //check which player #1-5 based on player ID
-
         int scoreToCheck = 0;
         int whichPlayer = 0;
-        try
+        try 
         {
             if (playerID == IDList[0])
             {
@@ -227,7 +234,7 @@ public class ScoreManager : RealtimeComponent
             {
                 scoreText1.text = "no matching ID for: " + playerID;
             }
-        } catch (System.IndexOutOfRangeException) {
+        } catch (System.ArgumentOutOfRangeException) {
             Debug.Log("Index out of bounds. Client ID not found");
             scoreText1.text = "out of bounds index";
         }
@@ -237,23 +244,6 @@ public class ScoreManager : RealtimeComponent
         {
             WinManager.Instance.playerHasWon(whichPlayer);
         }
-
-
-        /*
-       if (_swimmyAvatarManager.avatars.TryGetValue(playerID, out SwimmyAvatar currentAvatar))
-       {
-           scoreText2.text ="Player name:" + currentAvatar._player.GetPlayerName();
-       }
-       else
-       {
-           scoreText3.text = "No matching avatar for this ID: " + playerID;
-
-           //When I DO have this line below: the playerID is-1. 
-           //When I DON'T and line is commented out, playerID is 0 and object won't pick up
-           scoreText4.text = "Name of avatar at key 0: "+ _swimmyAvatarManager.avatars[0]._player.GetPlayerName() + ".end of name";
-       }
-
-       */
 
     }
 

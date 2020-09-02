@@ -11,13 +11,14 @@ public class Collectible : MonoBehaviour
 
     public int scoreValue;
 
-    private Player lastOwner;
-
     public void Awake()
     {
         //scoreManager = GameObject.Find("ScoreManager");
     }
 
+    /* Get the ID of the player holding this object
+     * Called from Interactable event OnSelectEnter()
+     */
     public void setLastOwnerID()
     {
         lastOwnerID = GetComponent<RealtimeView>().ownerID;
@@ -25,23 +26,23 @@ public class Collectible : MonoBehaviour
         Debug.Log("Last owner ID: " + lastOwnerID);
     }
 
-    public int GetScore()
-    {
-        return scoreValue;
-    }
-
+    /* Sends this objects score value and the player ID to singleton ScoreManager
+     * Called from Interactable event OnSelectExit()
+     * 
+     * Commented lines are off for testing, for now.
+     */
     public void CollectObject()
     {
-        //Debug.Log(handInBag);
         //if (handInBag)
         ScoreManager.instance.AddToScore(scoreValue, lastOwnerID);
         //this.GetComponent<MeshRenderer>().enabled = false;
 
     }
 
+    /* Check if this object is held inside the hip bag trigger box: located in player prefab "Custom Avatar"
+     */
     private void OnTriggerEnter(Collider other)
     {
-        //ScoreManager.instance.AddToScore(scoreValue);
         if (other.tag == "Bag")
             handInBag = true;
     }
@@ -52,6 +53,7 @@ public class Collectible : MonoBehaviour
             handInBag = false;
     }
 
+    // Used for UI button testing only
     public void testCollect()
     {
         ScoreManager.instance.AddToScore(5, 0);

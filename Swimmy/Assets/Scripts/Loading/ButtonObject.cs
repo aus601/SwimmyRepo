@@ -2,10 +2,13 @@
 using UnityEngine;
 using Normal.Realtime;
 
+/* The ENTER button
+ * Used to save player name from input field and load game
+ */
 public class ButtonObject : MonoBehaviour
 {
     private Realtime _realtime;
-    //Find update local player singleton
+    
     public void Awake()
     {
         _realtime = GetComponent<Realtime>();
@@ -14,11 +17,10 @@ public class ButtonObject : MonoBehaviour
     public void LoadGame()
     {
         SceneLoader.Instance.LoadNewScene("GameScene");
-        //_realtime.Connect("Game");
     }
 
     public void SendLocalPlayerName(TextMeshProUGUI nameField)
     {
-        UpdateLocalPlayer.Instance.SaveLocalPlayerName( nameField);
+        UpdateLocalPlayer.Instance.SaveLocalPlayerName( nameField); // POSSIBLE BUG HERE
     }
 }

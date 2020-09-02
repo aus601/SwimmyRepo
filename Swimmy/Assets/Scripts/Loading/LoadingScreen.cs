@@ -21,7 +21,7 @@ public class LoadingScreen : MonoBehaviour
 
     void Update()
     {
-        //If any scene has finished loading
+        //If either scene has finished loading
         if (SceneLoader.Instance.isLoading == false)
         {
             sphere1.SetActive(false);
@@ -29,7 +29,7 @@ public class LoadingScreen : MonoBehaviour
             loadingText1.SetActive(false);
             loadingText2.SetActive(false);
         }
-        else if (SceneLoader.Instance.gameIsLoading)
+        else if (SceneLoader.Instance.gameIsLoading) //While game is loading
         {
             sphere1.SetActive(true);
             sphere2.SetActive(true);

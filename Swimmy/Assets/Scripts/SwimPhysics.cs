@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
+/* Swimming locomotion for the players
+ * 
+ * Activated only in Game scene
+ */
 public class SwimPhysics : LocomotionProvider
 {
     public List<XRController> controllers = null;
@@ -13,16 +17,7 @@ public class SwimPhysics : LocomotionProvider
     public float speed = 1.0f;
     public float gravityMultiplier = 1.0f;
 
-    //Game objects
-    //public Rigidbody LeftHand;
-    //public Rigidbody RightHand;
     public Rigidbody Body;
-    //public Rigidbody cube;
-
-    //Physics
-    public float timeToZero = 6f;
-    float accelRatePerSec;
-    float decelRatePerSec;
 
     protected override void Awake()
     {
@@ -34,8 +29,6 @@ public class SwimPhysics : LocomotionProvider
     //Start is called before first frame update
     void Start()
     {
-        accelRatePerSec = speed / timeToZero;
-        decelRatePerSec = -speed / timeToZero;
         PositionController();
     }
 
@@ -82,29 +75,20 @@ public class SwimPhysics : LocomotionProvider
 
     private void CheckForMovement(InputDevice device)
     {
-        //bool isTriggerPressed;
-        if (device.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 accel)) //if the controller is moving
+        //if the controller is moving
+        if (device.TryGetFeatureValue(CommonUsages.deviceVelocity, out Vector3 accel)) 
         {
-            //if (device.TryGetFeatureValue(CommonUsages.triggerButton, out isTriggerPressed) && isTriggerPressed)
             StartMove(accel, device);
         }
-        
-
     }
 
-    private void StartMove(Vector3 accel, InputDevice device) //is called by-frame for each hand
+    //is called by-frame for each hand
+    private void StartMove(Vector3 accel, InputDevice device) 
     {
-        //speed *= decelRatePerSec;
-        //speed = Mathf.Max(speed, 0);
-
-        //Apply speed and move
-        //Vector3 movement = speed * -accel;
-        //Body.AddForce(accel * Time.deltaTime);
-        //charController.Move(movement * Time.deltaTime);
-
+        //Invert the velocity to move opposite direction of stroke
         Vector3 velocity =  -accel;
 
-        //Debug.Log(velocity);
+        //Restrict a stroke to only a speed abov e 1.5 to avoid jerking motion
         if (velocity.magnitude > 1.9) //normal big stroke
         {
             Body.AddForce(velocity, ForceMode.Impulse);
@@ -126,25 +110,5 @@ public class SwimPhysics : LocomotionProvider
         {
             Body.AddForce(velocity / 5, ForceMode.Impulse);
         }
-
-        //charController.Move(velocity * Time.deltaTime);
-
-
-        /*
-        float leftSpeed = leftV.magnitude;
-        float rightSpeed = rightV.magnitude;
-
-        Vector3 totalSpeed = leftV + rightV;
-        cube.AddForce(totalSpeed * speed);
-        */
-
-        /*
-        //Apply position to head's forward vector
-        Vector3 direction = new Vector3(accel.x, 0, accel.y);
-        Vector3 headRotation = new Vector3(head.transform.eulerAngles.x, head.transform.eulerAngles.y, head.transform.eulerAngles.z);
-
-        //Rotate input direction by head rotation
-        direction = Quaternion.Euler(headRotation) * direction;
-        */
     }
 }

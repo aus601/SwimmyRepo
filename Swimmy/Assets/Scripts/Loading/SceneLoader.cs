@@ -9,6 +9,7 @@ public class SceneLoader : Singleton<SceneLoader>
     public UnityEvent OnLoadEnd = new UnityEvent();
     public ScreenFader screenFader = null;
 
+    //Bools used in LoadingScreen.cs and SwitchLocomotion.cs
     public bool isLoading = false;
     public bool gameIsLoading = false;
     public bool lobbyIsLoading = false;
@@ -16,6 +17,8 @@ public class SceneLoader : Singleton<SceneLoader>
     private void Awake()
     {
         SceneManager.sceneLoaded += SetActiveScene;
+
+        //Start in the Lobby scene
         LoadNewScene("Lobby");
     }
 
@@ -44,14 +47,9 @@ public class SceneLoader : Singleton<SceneLoader>
         isLoading = true;
 
         OnLoadBegin.Invoke();
-        //yield return screenFader.StartFadeIn();
         yield return StartCoroutine(UnloadCurrent());
 
-        // For testing
-        //yield return new WaitForSeconds(3.0f);
-
         yield return StartCoroutine(LoadNew(sceneName));
-        //yield return screenFader.StartFadeOut();
         OnLoadEnd.Invoke();
 
         isLoading = false;

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 443255905}
   - component: {fileID: 443255904}
   - component: {fileID: 443255906}
+  - component: {fileID: 443255907}
   m_Layer: 0
   m_Name: BuildLoader
   m_TagString: Untagged
@@ -705,6 +706,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1eac96bbe4b41a48b6589a437f38023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &443255907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443255903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ad40be5c51ac5418cb1a54bfa7d785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &457045141
@@ -2079,7 +2092,6 @@ MonoBehaviour:
   speed: 1
   gravityMultiplier: 1
   Body: {fileID: 2145247111}
-  timeToZero: 6
 --- !u!114 &2145247113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2099,7 +2111,6 @@ MonoBehaviour:
   speed: 1
   gravityMultiplier: 1
   Body: {fileID: 2145247111}
-  timeToZero: 6
 --- !u!143 &2145247114
 CharacterController:
   m_ObjectHideFlags: 0

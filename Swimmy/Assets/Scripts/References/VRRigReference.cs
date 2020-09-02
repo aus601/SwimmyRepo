@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Reference parts of XR Rig
+ */
 public class VRRigReference : MonoBehaviour
 {
     public static VRRigReference instance;

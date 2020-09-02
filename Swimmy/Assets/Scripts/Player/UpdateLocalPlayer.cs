@@ -4,33 +4,15 @@ using UnityEngine;
 using Normal.Realtime;
 using TMPro;
 
-public class UpdateLocalPlayer : Singleton<FindReferences>
+public class UpdateLocalPlayer : Singleton<UpdateLocalPlayer>
 {
-    private static UpdateLocalPlayer _instance = null;
 
     private string localPlayerName;
     private SwimmyAvatarManager _realtimeAvatarManager;
     private Realtime _realtime;
 
-    public static UpdateLocalPlayer Instance
-    {
-        get
-        {
-            if (_instance == null)
-                Debug.LogError("UpdateLocalPlayer is null");
-
-            return _instance;
-        }
-    }
-
     private void Awake()
     {
-        if (_instance == null)
-            _instance = this;
-        else if (_instance != null)
-            Destroy(this);
-
-        //_realtime = GameObject.Find("Realtime + VR Player");
         _realtime = GetComponent<Realtime>();
         _realtimeAvatarManager = GetComponent<SwimmyAvatarManager>();
     }

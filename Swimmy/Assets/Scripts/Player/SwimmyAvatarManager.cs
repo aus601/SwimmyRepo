@@ -40,7 +40,8 @@ namespace Normal.Realtime
 
         private void Start()
         {
-            //Hook up local avatar prefab with Pico components
+            //CUSTOM
+            //Hook up local avatar prefab 
             _localPlayer.root = VRRigReference.instance.root;
             _localPlayer.head = VRRigReference.instance.head;
             _localPlayer.leftHand = VRRigReference.instance.leftHand;

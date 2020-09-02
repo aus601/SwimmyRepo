@@ -109,11 +109,11 @@ namespace Normal.Realtime
                 if (leftHandRealtimeTransform != null) leftHandRealtimeTransform.RequestOwnership();
                 if (rightHandRealtimeTransform != null) rightHandRealtimeTransform.RequestOwnership();
 
+                // CUSTOM
                 //Get player name
-                if (GetComponentInParent<Player>() != null)
+                if (GetComponent<Player>() != null)
                 {
-                    GameObject currentAvatar = _realtimeAvatarManager.localAvatar.gameObject;
-                    _player = currentAvatar.GetComponent<Player>();
+                    _player = GetComponent<Player>();
                 }
                 else
                 {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/* The name assigned to this player
+ */
 public class PlayerName : MonoBehaviour
 {
     private Player _player;

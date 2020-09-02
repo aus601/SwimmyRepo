@@ -49,6 +49,7 @@ public class Player : RealtimeComponent
         _model.playerName = _name;
         playerName = _name;
 
+        //POSSIBLE BUG - Player name does get set but does not follow Player once the Game scene has loaded
         Debug.Log("Player name has been set.");
     }
 
@@ -58,7 +59,7 @@ public class Player : RealtimeComponent
             return playerName;
         else if (playerName == null)
             return _model.playerName;
-        else
-            return "I have no name.";
+        else // For testing
+            return "I have no name."; //If the Game scene happens to successfully detect a player component, it will always display this
     }
 }
