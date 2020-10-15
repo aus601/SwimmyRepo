@@ -18,7 +18,7 @@ public class BodyTracking : MonoBehaviour
         //fixedRotation = transform.rotation;
         //eulerRotation = transform.rotation.eulerAngles;
 
-        bodyPos = new Vector3(0f, -0.25f, 0);
+        bodyPos = new Vector3(0f, -1.0f, 0);
         
     }
 
@@ -36,8 +36,8 @@ public class BodyTracking : MonoBehaviour
     
     private void LateUpdate()
     {
-        transform.position = head.transform.position + bodyPos;
-        prevRotation = head.transform.rotation;
+        transform.position = headCenter.transform.position + bodyPos;
+        prevRotation = headCenter.transform.rotation;
         transform.rotation = Quaternion.Euler(0, prevRotation.eulerAngles.y, 0);
             //Quaternion.LookRotation(head.transform.rotation.eulerAngles, Vector3.up);
         //Quaternion.Euler(1.0f, prevRotation.y, prevRotation.z);

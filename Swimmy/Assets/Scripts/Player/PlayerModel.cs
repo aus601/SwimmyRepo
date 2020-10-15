@@ -7,7 +7,7 @@ using Normal.Realtime.Serialization;
 [RealtimeModel]
 public partial class PlayerModel 
 {
-    [RealtimeProperty(1, true, true)]
+    [RealtimeProperty(10, true, true)]
     private string _playerName;
 
     

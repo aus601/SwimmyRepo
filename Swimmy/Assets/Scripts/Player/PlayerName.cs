@@ -7,7 +7,7 @@ public class PlayerName : MonoBehaviour
 {
     private Player _player;
     private TextMeshPro _playerTextUI;
-    private string currentName;
+    public string currentName;
 
     private void Awake()
     {
@@ -17,6 +17,7 @@ public class PlayerName : MonoBehaviour
         {
             Debug.LogError("No player config found");
         }
+        currentName = "x";
     }
 
     private void Update()
@@ -26,7 +27,10 @@ public class PlayerName : MonoBehaviour
         if (currentName != _player.playerName)
         {
             currentName = _player.playerName;
+            //currentName = TransferPlayerNames.instance.getName(_player.playerID);
             _playerTextUI.SetText(currentName);
+
+            Debug.Log("PlayerName has set UI text to: " + currentName);
         }
     }
 }

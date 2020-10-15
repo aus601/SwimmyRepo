@@ -28,7 +28,7 @@ public class ScoreManager : RealtimeComponent
 
     private ScoreManagerModel _model;
 
-    private SwimmyAvatarManager _swimmyAvatarManager = null;
+    public SwimmyAvatarManager _swimmyAvatarManager;
 
     private ScoreManagerModel model
     {
@@ -140,11 +140,14 @@ public class ScoreManager : RealtimeComponent
     {
         if (instance == null)
             instance = this;
-        else if (instance != null)
+        else if (instance != this)
             Destroy(this);
 
+<<<<<<< Updated upstream
         //Get reference for RealtimeAvatarManager
         _swimmyAvatarManager = FindReferences.Instance.getSwimmyAvatarManager();
+=======
+>>>>>>> Stashed changes
     }
 
     public bool checkForWin(int score)
@@ -161,11 +164,15 @@ public class ScoreManager : RealtimeComponent
         List<int> IDList = new List<int>(_swimmyAvatarManager.avatars.Keys);
         List<SwimmyAvatar> avatarList = new List<SwimmyAvatar>(_swimmyAvatarManager.avatars.Values);
 
+<<<<<<< Updated upstream
         scoreText2.text = "id list length: " + IDList.Count + " and this ID: " + playerID;
         scoreText3.text = "avatar list length: " + avatarList.Count;
         scoreText4.text = "dictionary length: " + _swimmyAvatarManager.avatars.Count;
 
         //foreach loop through dictionary
+=======
+        //Loop through the dictionary to find matching player
+>>>>>>> Stashed changes
         SwimmyAvatar currentAvatar = null;
         foreach (KeyValuePair<int, SwimmyAvatar> currentPair in _swimmyAvatarManager.avatars)
         {
@@ -175,6 +182,7 @@ public class ScoreManager : RealtimeComponent
             }
         }
 
+<<<<<<< Updated upstream
         if (currentAvatar == null)
             scoreText1.text = "avatar null";
         else if (currentAvatar._player == null)
@@ -182,6 +190,8 @@ public class ScoreManager : RealtimeComponent
         else
             scoreText1.text = currentAvatar._player.GetPlayerName() + "name and ID: " + playerID;
 
+=======
+>>>>>>> Stashed changes
         //check which player #1-5 based on player ID
 
         int scoreToCheck = 0;
@@ -193,35 +203,35 @@ public class ScoreManager : RealtimeComponent
                 player1Score += scoreValue;
                 scoreToCheck = player1Score;
                 whichPlayer = 1;
-                scoreText1.text = currentAvatar.GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+                scoreText1.text = currentAvatar.GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score;
             }
             else if (playerID == IDList[1])
             {
                 player2Score += scoreValue;
                 scoreToCheck = player2Score;
                 whichPlayer = 2;
-                scoreText2.text = avatarList[1].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+                scoreText2.text = avatarList[1].GetComponent<Player>().GetPlayerName() + "'s Score: " + player2Score;
             }
             else if (playerID == IDList[2])
             {
                 player3Score += scoreValue;
                 scoreToCheck = player3Score;
                 whichPlayer = 3;
-                scoreText3.text = avatarList[2].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+                scoreText3.text = avatarList[2].GetComponent<Player>().GetPlayerName() + "'s Score: " + player3Score;
             }
             else if (playerID == IDList[3])
             {
                 player4Score += scoreValue;
                 scoreToCheck = player4Score;
                 whichPlayer = 4;
-                scoreText4.text = avatarList[3].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+                scoreText4.text = avatarList[3].GetComponent<Player>().GetPlayerName() + "'s Score: " + player4Score;
             }
             else if (playerID == IDList[4])
             {
                 player5Score += scoreValue;
                 scoreToCheck = player5Score;
                 whichPlayer = 5;
-                scoreText5.text = avatarList[4].GetComponent<Player>().GetPlayerName() + "'s Score: " + player1Score.ToString();
+                scoreText5.text = avatarList[4].GetComponent<Player>().GetPlayerName() + "'s Score: " + player5Score;
             }
             else
             {
@@ -235,7 +245,7 @@ public class ScoreManager : RealtimeComponent
         //Check if there is a win
         if (checkForWin(scoreToCheck))
         {
-            WinManager.Instance.playerHasWon(whichPlayer);
+            WinManager.instance.playerHasWon(avatarList[whichPlayer - 1].GetComponent<Player>().GetPlayerName());
         }
 
 

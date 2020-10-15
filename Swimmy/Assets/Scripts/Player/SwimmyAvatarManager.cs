@@ -31,6 +31,7 @@ namespace Normal.Realtime
             _realtime = GetComponent<Realtime>();
             _realtime.didConnectToRoom += DidConnectToRoom;
 
+<<<<<<< Updated upstream
             if (_localPlayer == null)
                 _localPlayer = new SwimmyAvatar.LocalPlayer();
 
@@ -41,10 +42,20 @@ namespace Normal.Realtime
         private void Start()
         {
             //Hook up local avatar prefab with Pico components
+=======
+            //CUSTOM
+            //Hook up local avatar prefab 
+>>>>>>> Stashed changes
             _localPlayer.root = VRRigReference.instance.root;
             _localPlayer.head = VRRigReference.instance.head;
             _localPlayer.leftHand = VRRigReference.instance.leftHand;
             _localPlayer.rightHand = VRRigReference.instance.rightHand;
+
+            if (_localPlayer == null)
+                _localPlayer = new SwimmyAvatar.LocalPlayer();
+
+            avatars = new Dictionary<int, SwimmyAvatar>();
+          
         }
 
         private void OnEnable()
@@ -172,6 +183,7 @@ namespace Normal.Realtime
 
             // spawning avatar here on instantiating
             GameObject avatarGameObject = Realtime.Instantiate(_localAvatarPrefab.name, true, true, true, _realtime);
+
             if (avatarGameObject == null)
             {
                 Debug.LogError("RealtimeAvatarManager: Failed to instantiate RealtimeAvatar prefab for the local player.");
@@ -188,6 +200,10 @@ namespace Normal.Realtime
             localAvatar.localPlayer = _localPlayer;
             localAvatar.deviceType = GetRealtimeAvatarDeviceTypeForLocalPlayer();
             localAvatar.deviceModel = XRDevice.model;
+
+            // CUSTOM
+            
+            localAvatar._player = localAvatar.gameObject.GetComponent<Player>();
         }
 
         public void DestroyAvatarIfNeeded()

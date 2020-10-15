@@ -40,6 +40,16 @@ namespace Normal.Realtime
         private SwimmyAvatarManager _realtimeAvatarManager;
         void Start()
         {
+            if (GetComponent<Player>() != null)
+            {
+                _player = GetComponent<Player>();
+                Debug.Log("ID assigned to player in SwimmyAvatar is: " + realtimeView.ownerID);
+            }
+            else
+            {
+                Debug.Log("Player component null on SwimmyAvatar");
+            }
+
             // Register with RealtimeAvatarManager
             try
             {
@@ -109,6 +119,7 @@ namespace Normal.Realtime
                 if (leftHandRealtimeTransform != null) leftHandRealtimeTransform.RequestOwnership();
                 if (rightHandRealtimeTransform != null) rightHandRealtimeTransform.RequestOwnership();
 
+<<<<<<< Updated upstream
                 //Get player name
                 if (GetComponentInParent<Player>() != null)
                 {
@@ -119,6 +130,8 @@ namespace Normal.Realtime
                 {
                     Debug.Log("No player component found");
                 }
+=======
+>>>>>>> Stashed changes
             }
         }
         void ActiveStateChanged(RealtimeAvatarModel model, bool nodeIsActive)

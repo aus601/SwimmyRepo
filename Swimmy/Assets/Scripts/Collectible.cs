@@ -9,6 +9,8 @@ public class Collectible : MonoBehaviour
     private bool handInBag = false;
     private int lastOwnerID;
 
+    public GameObject mesh;
+
     public int scoreValue;
 
     private Player lastOwner;
@@ -32,11 +34,30 @@ public class Collectible : MonoBehaviour
 
     public void CollectObject()
     {
+<<<<<<< Updated upstream
         //Debug.Log(handInBag);
         //if (handInBag)
         ScoreManager.instance.AddToScore(scoreValue, lastOwnerID);
         //this.GetComponent<MeshRenderer>().enabled = false;
+=======
+        if (!WinManager.instance.gameHasWinner)
+        {
+            if (handInBag)
+            {
+                ScoreManager.instance.AddToScore(scoreValue, lastOwnerID);
+                mesh.SetActive(false);
+            }
+        }
+    }
+>>>>>>> Stashed changes
 
+    public void CollectTank()
+    {
+        if (handInBag)
+        {
+            GetComponent<Respawn>().RespawnNow();
+            GetComponent<HoverUI>().successfullyCollected();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

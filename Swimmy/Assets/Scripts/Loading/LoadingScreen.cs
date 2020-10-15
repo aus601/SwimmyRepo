@@ -21,15 +21,24 @@ public class LoadingScreen : MonoBehaviour
 
     void Update()
     {
+<<<<<<< Updated upstream
         //If any scene has finished loading
         if (SceneLoader.Instance.isLoading == false)
+=======
+        //If either scene has finished loading
+        if (SceneLoader.instance.isLoading == false)
+>>>>>>> Stashed changes
         {
             sphere1.SetActive(false);
             sphere2.SetActive(false);
             loadingText1.SetActive(false);
             loadingText2.SetActive(false);
         }
+<<<<<<< Updated upstream
         else if (SceneLoader.Instance.gameIsLoading)
+=======
+        else if (SceneLoader.instance.gameIsLoading) //While game is loading
+>>>>>>> Stashed changes
         {
             sphere1.SetActive(true);
             sphere2.SetActive(true);

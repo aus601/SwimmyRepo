@@ -10,7 +10,11 @@ public class SwitchLocomotion : MonoBehaviour
 
     private void Update()
     {
+<<<<<<< Updated upstream
         if (SceneLoader.Instance.gameIsLoading) // When both: not in loading screen and in game
+=======
+        if (SceneLoader.instance.gameIsLoading) // When both not in loading screen and is in game
+>>>>>>> Stashed changes
         {
             this.GetComponent<SwimPhysics>().enabled = true;
             this.GetComponent<LobbySwimPhysics>().enabled = false;
@@ -18,7 +22,7 @@ public class SwitchLocomotion : MonoBehaviour
             leftHand.GetComponent<XRInteractorLineVisual>().enabled = false;
             rightHand.GetComponent<XRInteractorLineVisual>().enabled = false;
 
-            this.GetComponent<Rigidbody>().mass = 3;
+            this.GetComponent<Rigidbody>().mass = 2.5f;
 
         }
     }

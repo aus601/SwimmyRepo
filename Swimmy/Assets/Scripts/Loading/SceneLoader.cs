@@ -3,8 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : Singleton<SceneLoader>
+public class SceneLoader : MonoBehaviour
 {
+    public static SceneLoader instance;
     public UnityEvent OnLoadBegin = new UnityEvent();
     public UnityEvent OnLoadEnd = new UnityEvent();
     public ScreenFader screenFader = null;
@@ -15,6 +16,9 @@ public class SceneLoader : Singleton<SceneLoader>
 
     private void Awake()
     {
+        if (instance == null) instance = this;
+        else if (instance != this) Destroy(this);
+
         SceneManager.sceneLoaded += SetActiveScene;
         LoadNewScene("Lobby");
     }
@@ -33,6 +37,7 @@ public class SceneLoader : Singleton<SceneLoader>
         else if (sceneName == "GameScene")
         {
             gameIsLoading = true;
+            Debug.Log("Game is loading now");
         }
 
         if (!isLoading)
